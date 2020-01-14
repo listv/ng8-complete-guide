@@ -1,3 +1,5 @@
+import { RecipeResolver } from './recipes/recipe-detail/recipe-resolver.service';
+import { RecipeService } from './recipes/recipe.service';
 import { AppRoutingModule } from './app-routing.module';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,7 +31,7 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
     RecipeStartComponent
   ],
   imports: [BrowserModule, FormsModule, AppRoutingModule],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecipeResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

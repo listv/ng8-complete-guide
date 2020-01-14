@@ -4,6 +4,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { RecipeResolver } from './recipes/recipe-detail/recipe-resolver.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -12,7 +13,11 @@ const appRoutes: Routes = [
     component: RecipesComponent,
     children: [
       { path: '', component: RecipeStartComponent },
-      { path: ':id', component: RecipeDetailComponent, }
+      {
+        path: ':id',
+        component: RecipeDetailComponent,
+        resolve: { recipe: RecipeResolver }
+      }
     ]
   },
   { path: 'shopping-list', component: ShoppingListComponent }
