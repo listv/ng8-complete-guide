@@ -1,15 +1,11 @@
 import { ShoppingListService } from './../shopping-list/shopping-list.service';
 import { Ingredient } from './../shared/ingredient.model';
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
-  getRecipe(id: number): Recipe | Observable<Recipe> | Promise<Recipe> {
-    return this.recipes[id];
-  }
-
   private recipes: Recipe[] = [
     new Recipe(
       'Tasty Schnitzel',
@@ -24,7 +20,10 @@ export class RecipeService {
       [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
     )
   ];
-  recipeSelected = new EventEmitter<Recipe>();
+
+  getRecipe(id: number): Recipe | Observable<Recipe> | Promise<Recipe> {
+    return this.recipes[id];
+  }
 
   constructor(private shoppingListService: ShoppingListService) {}
 
