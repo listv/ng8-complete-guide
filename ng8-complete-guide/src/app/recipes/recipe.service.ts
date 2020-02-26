@@ -5,8 +5,7 @@ import { Recipe } from './recipe.model';
 import { Observable } from 'rxjs/internal/Observable';
 import { Subject } from 'rxjs';
 
-//@Injectable({ providedIn: 'root' })
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
@@ -40,7 +39,14 @@ export class RecipeService {
   }
 
   addRecipe(recipe: Recipe) {
-    this.recipes.push( new Recipe(recipe.name, recipe.description, recipe.imagePath, recipe.ingredients));
+    this.recipes.push(
+      new Recipe(
+        recipe.name,
+        recipe.description,
+        recipe.imagePath,
+        recipe.ingredients
+      )
+    );
     this.recipesChanged.next(this.recipes.slice());
   }
 
