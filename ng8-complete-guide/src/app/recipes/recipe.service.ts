@@ -15,7 +15,7 @@ export class RecipeService {
     ),
     new Recipe(
       'Big fat burger',
-      'What else you neet to say?',
+      'What else you need to say?',
       'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
       [new Ingredient('Buns', 2), new Ingredient('Meat', 1)]
     )
